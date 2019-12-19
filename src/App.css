@@ -44,6 +44,8 @@
 #svg_undefined {
     background: transparent url('images/3floor.png') 0 0 no-repeat !important;
     background-size: 100% 100% !important;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 
 .search {
@@ -72,4 +74,8 @@
     color: #fff;
     font-size: 20px;
     padding: 10px;
+}
+
+#navigator {
+    display: none;
 }

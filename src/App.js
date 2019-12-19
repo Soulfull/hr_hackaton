@@ -39,11 +39,7 @@ const data = [
     equipments: [
       {type: 'Surname', specification: 'Тучкова'},
       { type: 'desk', specification: 'Simple desk' },
-      { type: 'cpu', specification: 'Dual core 2.4 GHz, 16 GB RAM, 256 GB HD' },
-      { type: 'monitor', specification: 'HP V197 18.5-inch' },
-      { type: 'keyboard', specification: 'HP Ultrathin Wireless Keyboard' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
-      { type: 'mouse', specification: 'HP USB 2 Button Optical Mouse' },
       { type: 'drawer', specification: 'Simple drawer' },
     ],
   },
@@ -71,13 +67,17 @@ const data = [
     ],
   },
   {
-    surname: 'Вдовиченко',
+    surname: 'Вдовыченко',
     id: 6, chairDirection: 'west', x: 4, y: 0,
     equipments: [
       {type: 'Surname', specification: 'Вдовиченко'},
+      { type: 'cpu', specification: 'Dual core 2.4 GHz, 16 GB RAM, 256 GB HD' },
+      { type: 'monitor', specification: 'HP V197 18.5-inch' },
+      { type: 'keyboard', specification: 'HP Ultrathin Wireless Keyboard' },
       { type: 'desk', specification: 'Simple desk' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'drawer', specification: 'Simple drawer' },
+      { type: 'mouse', specification: 'HP USB 2 Button Optical Mouse' },
     ],
   },
   {
@@ -112,6 +112,11 @@ const data = [
       { type: 'desk', specification: 'Simple desk' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'drawer', specification: 'Simple drawer' },
+      { type: 'cpu', specification: 'Dual core 2.4 GHz, 16 GB RAM, 256 GB HD' },
+      { type: 'monitor', specification: 'HP V197 18.5-inch' },
+      { type: 'keyboard', specification: 'HP Ultrathin Wireless Keyboard' },
+      { type: 'phone', specification: 'Cisco Phone IP 7960G/7940G' },
+      { type: 'mouse', specification: 'HP USB 2 Button Optical Mouse' },
     ]
   },
   {
@@ -137,8 +142,8 @@ const data = [
       { type: 'monitor', specification: 'HP V197 18.5-inch' },
       { type: 'keyboard', specification: 'HP Ultrathin Wireless Keyboard' },
       { type: 'phone', specification: 'Cisco Phone IP 7960G/7940G' },
-      { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'mouse', specification: 'HP USB 2 Button Optical Mouse' },
+      { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'drawer', specification: 'Simple drawer' },
     ]
   },
@@ -156,10 +161,10 @@ const data = [
       { type: 'drawer', specification: 'Simple drawer' },
     ]
   }
-]
+];
 export default class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       desk: undefined,
       value: '',
@@ -167,7 +172,7 @@ export default class App extends Component {
   }
 
   findPerson = () => {
-    const person = data.find(elem => elem.surname.toLowerCase() === this.state.value.toLowerCase());
+    const person = data.find(elem => elem.surname.toLowerCase().includes(this.state.value.toLowerCase()));
     if (person) {
       this.setState({
         desk: person
@@ -175,13 +180,24 @@ export default class App extends Component {
     }
   };
 
+  componentDidMount() {
+    const elem = document.getElementById('matrix-group_undefined');
+    if (elem) {
+      elem.setAttribute('transform', 'matrix(0.5092006176710129 0 0 0.5092006176710129 0 0)');
+    }
+  }
+
   render() {
     const desk = this.state.desk;
     return (
       <div className="container" style={{ width: 1200, margin: "10px auto" }}>
         <h1>Space 307 Trading team</h1>
         <div className="search">
-          <input className="search__input" type="text" onChange={(e) => {
+          <input className="search__input" type="text" onKeyPress={(e) => {
+            if (e.charCode === 13) {
+              this.findPerson();
+            }
+          }} onChange={(e) => {
             this.setState({
               value: e.target.value,
             })
