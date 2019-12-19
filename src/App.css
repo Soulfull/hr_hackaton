@@ -63,6 +63,11 @@
     margin: 0 10px;
     font-size: 20px;
     padding: 10px;
+    transition: border-color .3s ease-in-out;
+}
+
+.search__input:focus {
+    border-color: #4169c7;
 }
 
 .search__btn {
@@ -78,4 +83,18 @@
 
 #navigator {
     display: none;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 300px;
+}
+
+.logo svg {
+    width: 300px;
 }

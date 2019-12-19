@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 
 import './App.css';
 import OfficeMap from 'office-map'
-
+import Logo from './Logo.jsx';
 const data = [
   {
     id: 1,
     surname: 'Смолин',
     chairDirection: 'south', x: 1, y: 2,
     equipments: [
-      {type: 'Surname', specification: 'Смолин'},
+      {type: 'Surname', specification: 'Миха Смолин'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'laptop', specification: 'Laptop Dell Inspiron 15 5000' },
       { type: 'phone', specification: 'Cisco Phone IP 7960G/7940G' },
@@ -22,7 +22,7 @@ const data = [
     surname: 'Коновалов',
     chairDirection: 'north', x: 0, y: 1,
     equipments: [
-      {type: 'Surname', specification: 'Коновалов'},
+      {type: 'Surname', specification: 'Федя Коновалов'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'cpu', specification: 'Dual core 2.4 GHz, 16 GB RAM, 256 GB HD' },
       { type: 'monitor', specification: 'HP V197 18.5-inch' },
@@ -37,7 +37,7 @@ const data = [
     surname: 'Тучкова',
     id: 3, chairDirection: 'north', x: 6, y: 0,
     equipments: [
-      {type: 'Surname', specification: 'Тучкова'},
+      {type: 'Surname', specification: 'Саша Тучкова'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'drawer', specification: 'Simple drawer' },
@@ -47,7 +47,7 @@ const data = [
     surname: 'Роман',
     id: 4, chairDirection: 'east', x: 5, y: 0,
     equipments: [
-      {type: 'Surname', specification: 'Роман'},
+      {type: 'Surname', specification: 'Саня Роман'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'laptop', specification: 'Laptop Dell Inspiron 15 5000' },
@@ -59,7 +59,7 @@ const data = [
     surname: 'Клыба',
     id: 5, chairDirection: 'east', x: 5, y: 1,
     equipments: [
-      {type: 'Surname', specification: 'Клыба'},
+      {type: 'Surname', specification: 'Колян Клыба'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'laptop', specification: 'Laptop Dell Inspiron 15 5000' },
@@ -67,10 +67,10 @@ const data = [
     ],
   },
   {
-    surname: 'Вдовыченко',
+    surname: 'Вдовыдченко',
     id: 6, chairDirection: 'west', x: 4, y: 0,
     equipments: [
-      {type: 'Surname', specification: 'Вдовиченко'},
+      {type: 'Surname', specification: 'Александра Вдовыдченко'},
       { type: 'cpu', specification: 'Dual core 2.4 GHz, 16 GB RAM, 256 GB HD' },
       { type: 'monitor', specification: 'HP V197 18.5-inch' },
       { type: 'keyboard', specification: 'HP Ultrathin Wireless Keyboard' },
@@ -84,7 +84,7 @@ const data = [
     surname: 'Смирнов',
     id: 7, chairDirection: 'north', x: 1, y: 1,
     equipments: [
-      {type: 'Surname', specification: 'Смирнов'},
+      {type: 'Surname', specification: 'Саша Смирнов'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'cpu', specification: 'Dual core 2.4 GHz, 8 GB RAM, 512 GB HD' },
       { type: 'monitor', specification: 'HP V197 18.5-inch' },
@@ -98,7 +98,7 @@ const data = [
     surname: 'Шадура',
     id: 8, chairDirection: 'south', x: 3, y: 1,
     equipments: [
-      {type: 'Surname', specification: 'Шадура'},
+      {type: 'Surname', specification: 'Ольга Шадура'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'laptop', specification: 'Laptop Dell Inspiron 15 5000' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
@@ -108,7 +108,7 @@ const data = [
     surname: 'Быжон',
     id: 9, chairDirection: 'south', x: 1, y: 3,
     equipments: [
-      {type: 'Surname', specification: 'Быжон'},
+      {type: 'Surname', specification: 'Олесь Быжон'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'chair', specification: '817L Kare Ergonomic Office Chair' },
       { type: 'drawer', specification: 'Simple drawer' },
@@ -123,7 +123,7 @@ const data = [
     surname: 'Вышкин',
     id: 10, chairDirection: 'south', x: 0, y: 3,
     equipments: [
-      {type: 'Surname', specification: 'хуйсгоры'},
+      {type: 'Surname', specification: 'Антон Вышкин'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'monitor', specification: 'HP V197 18.5-inch' },
       { type: 'desktop', specification: 'HP CPU, keyboard and mouse' },
@@ -136,7 +136,7 @@ const data = [
     surname: 'Мироводин',
     id: 11, chairDirection: 'south', x: 2, y: 3,
     equipments: [
-      {type: 'Surname', specification: 'ушлепок'},
+      {type: 'Surname', specification: 'Дмитрий Мироводин'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'cpu', specification: 'Dual core 2.4 GHz, 16 GB RAM, 256 GB HD' },
       { type: 'monitor', specification: 'HP V197 18.5-inch' },
@@ -151,7 +151,7 @@ const data = [
     surname: 'Кулаков',
     id: 12, chairDirection: 'south', x: 0, y: 2,
     equipments: [
-      {type: 'Surname', specification: 'пидр'},
+      {type: 'Surname', specification: 'Серега Кулаков'},
       { type: 'desk', specification: 'Simple desk' },
       { type: 'cpu', specification: 'Dual core 2.4 GHz, 16 GB RAM, 256 GB HD' },
       { type: 'monitor', specification: 'HP V197 18.5-inch' },
@@ -191,7 +191,13 @@ export default class App extends Component {
     const desk = this.state.desk;
     return (
       <div className="container" style={{ width: 1200, margin: "10px auto" }}>
-        <h1>Space 307 Trading team</h1>
+        <header className="header">
+          <h1>Space 307 Trading team</h1>
+          <div className="logo">
+            <Logo />
+          </div>
+        </header>
+
         <div className="search">
           <input className="search__input" type="text" onKeyPress={(e) => {
             if (e.charCode === 13) {
